@@ -5,25 +5,21 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "vendor/mediatek/proprietary/hardware/fstab/mt6761/fstab.in.mt6761" 2
-# 133 "vendor/mediatek/proprietary/hardware/fstab/mt6761/fstab.in.mt6761"
-system /system erofs ro wait,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey,slotselect
+# 130 "vendor/mediatek/proprietary/hardware/fstab/mt6761/fstab.in.mt6761"
 system /system ext4 ro wait,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey,slotselect
 
 
 
 
-
-vendor /vendor erofs ro wait,avb,logical,first_stage_mount,slotselect
 vendor /vendor ext4 ro wait,avb,logical,first_stage_mount,slotselect
 
 
-product /product erofs ro wait,avb,logical,first_stage_mount,slotselect
 product /product ext4 ro wait,avb,logical,first_stage_mount,slotselect
-# 169 "vendor/mediatek/proprietary/hardware/fstab/mt6761/fstab.in.mt6761"
+# 157 "vendor/mediatek/proprietary/hardware/fstab/mt6761/fstab.in.mt6761"
 /dev/block/platform/bootdevice/by-name/md_udc /metadata ext4 noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
 
 
-/dev/block/platform/bootdevice/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,reserve_root=134217,resgid=1065,inlinecrypt,alloc_mode=reuse,fsync_mode=nobarrier latemount,wait,check,quota,reservedsize=128M,formattable,resize,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption
+/dev/block/platform/bootdevice/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,reserve_root=134217,resgid=1065,inlinecrypt latemount,wait,check,quota,reservedsize=128M,formattable,resize,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption
 
 
 
@@ -32,7 +28,6 @@ product /product ext4 ro wait,avb,logical,first_stage_mount,slotselect
 /dev/block/platform/bootdevice/by-name/protect2 /mnt/vendor/protect_s ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
 /dev/block/platform/bootdevice/by-name/nvdata /mnt/vendor/nvdata ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
 /dev/block/platform/bootdevice/by-name/nvcfg /mnt/vendor/nvcfg ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
-/dev/block/platform/bootdevice/by-name/rescue /mnt/rescue ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
 
 
 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
@@ -47,8 +42,7 @@ product /product ext4 ro wait,avb,logical,first_stage_mount,slotselect
 /dev/block/platform/bootdevice/by-name/proinfo /proinfo emmc defaults defaults
 /dev/block/platform/bootdevice/by-name/lk /bootloader emmc defaults defaults
 /dev/block/platform/bootdevice/by-name/lk2 /bootloader2 emmc defaults defaults
-/dev/block/platform/bootdevice/by-name/para /para emmc defaults defaults
-/dev/block/platform/bootdevice/by-name/misc /misc emmc defaults defaults
+/dev/block/platform/bootdevice/by-name/para /misc emmc defaults defaults
 
 
 
@@ -99,8 +93,10 @@ product /product ext4 ro wait,avb,logical,first_stage_mount,slotselect
 /dev/block/platform/bootdevice/by-name/spmfw /spmfw emmc defaults defaults
 
 /dev/block/platform/bootdevice/by-name/boot_para /boot_para emmc defaults defaults
+
 /dev/block/platform/bootdevice/by-name/dtbo1 /dtbo1 emmc defaults defaults
 /dev/block/platform/bootdevice/by-name/dtbo2 /dtbo2 emmc defaults defaults
 /dev/block/platform/bootdevice/by-name/dtbo /dtbo emmc defaults defaults
+
 
 /dev/block/platform/bootdevice/by-name/vbmeta /vbmeta emmc defaults defaults
